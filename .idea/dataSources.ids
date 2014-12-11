@@ -3,4 +3,7 @@
   <data-source source="LOCAL" name="Rails rspec_test: development" uuid="c3aa650c-2066-4c49-b059-1db0d9f4ae6d">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails rspec_test: test" uuid="636f38ee-f1ca-4bb8-b86e-5710190109ac">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

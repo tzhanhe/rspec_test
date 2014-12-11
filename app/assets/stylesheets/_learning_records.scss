@@ -1,0 +1,441 @@
+.learning-progress{
+
+	.panel-heading{
+		background-color: #fff;
+		color: #288ce6;
+		border-bottom:1px solid #e9e9e9;
+		padding:20px 32px 20px 30px;
+
+		h3{
+			font-size:20px;
+
+			span{
+				font-size:14px;
+				color:#868F99;
+				font-style:italic;
+				float:right;
+				line-height:22px;
+			}
+		}
+	}
+
+	.panel-body{
+		padding:0;
+
+		.summary-info{
+			position:relative;
+			height:140px;
+
+			.fixed-header{
+				height:140px;
+				padding:30px;
+				color:#a3b8cc;
+				background-color:#fff;
+				position:absolute;
+				top:0;
+				left:0;
+				z-index:6;
+
+				.expand{
+					display:none;
+				}
+				
+				div{
+					background-color:#F3F5F5;
+					border-radius:4px;
+					height:80px;
+					float:left;
+					width:120px;
+					margin-right:2px;
+					text-align:center;
+					line-height: 80px;	
+					font-size:16px;
+
+					&:nth-child(3){  /* 反正已经用rgba了，支持ie9及以上 */
+						margin-left:30px;
+					}
+
+					.main-text{
+						font-size:40px;
+						color:#278BE5;
+						margin-right:4px;
+					}
+					.sub-text{
+						font-size:16px;
+						color:#278BE5;
+					}
+				}
+			}
+
+			.fixed-header.float{
+				position:fixed;
+				top:0;
+				color:#868F99;
+				border-bottom:1px solid #ECEDEE;
+				margin-bottom:-1px;
+				background-color:rgba(255,255,255,0.9);
+
+				.expand{
+					position:absolute;
+					right:30px;
+					top:0;
+					bottom:0;
+					margin:auto;
+					display:block;
+					height:20px;
+					padding-right:20px;
+					line-height:20px;
+					background-image:url(/assets/images/expand.png);
+					background-position:right center;
+					background-repeat:no-repeat;
+					cursor:pointer;
+				}
+			}
+
+			@media (min-width: $breakpoint-1) {   /* 500 */
+				.fixed-header.float{
+					right:10px;
+					left:70px;
+				}
+			}
+
+			@media (min-width: $breakpoint-2) {  /* 1024 */
+				.fixed-header.float{
+					right:10px;
+					left:220px;
+				}
+			}
+			@media (min-width: $breakpoint-3) {  /* 1400 */
+				.fixed-header.float{
+					right:30px;
+					left:230px;
+				}
+			}
+		}
+		.summary-chart{
+			height:570px;
+			position:relative;
+
+			/*.bar-active{
+				height:100%;
+				width:100%;
+				background-position: left top;
+				background-image:url(/assets/images/bg_bar.png);
+				background-repeat:repeat;
+			}*/
+
+			.chart-container{
+				height:530px;
+				width:1000px;
+				margin-left:30px;
+				overflow-x:auto;
+				overflow-y:hidden;
+				float:left;
+			}
+
+			.chart-box{
+				min-width: 310px; 
+				height: 540px; 
+				margin: 0;
+				width:1000px;
+				float:left;
+			}
+			
+			.percent-stat{
+				background-color:#F3F5F5;
+				width:50px;
+				height:290px;
+				margin-top:52px;
+				margin-left:20px;
+				position:relative;
+				float:left;
+/*
+				position:absolute;
+				top:52px;
+				left:1020px;
+*/
+				span{
+					position:absolute;
+					font-size:14px;
+					color:#7a8a99;
+					left:0;
+					right:0;
+					margin:0 auto;
+					width: 40px;
+					text-align: center;
+					z-index:2;
+				}
+
+				p{
+					color:#606060;
+					width:100%;
+					position:absolute;
+					bottom:-54px;
+					padding-top:8px;
+					text-align:center;
+				}
+
+				ul{
+					list-style:none;
+					width:100%;
+					padding:0;
+					position:absolute;
+					bottom:0;
+					left:0;
+					margin:0;
+
+					li{
+						width:100%;
+						float:left;
+						-webkit-transition: all .2s ease;
+						-moz-transition: all .2s ease;
+						-ms-transition: all .2s ease;
+						-o-transition: all .2s ease;
+						transition: all .2s ease;
+
+						&.active{
+							width:130%;
+							margin-left:-15%;
+							background-position: left top;
+							background-image:url(/assets/images/bg_tilt.png);
+							background-repeat:repeat;
+						}
+					}
+				}
+			}
+		}
+
+		.summary-list{
+			height:770px;
+			position:relative;
+
+			.left-content{
+				width:410px;
+				min-width:410px;
+				position:absolute;
+				left:30px;
+				top:90px;
+				z-index:2;
+
+				.fixed-box{
+					position:relative;
+					z-index:4;
+					left:0px;
+					top:0px;
+					width:410px;
+
+					.card{
+						width:180px;
+						height:220px;
+						float:left;
+						margin-right:20px;
+						border:2px solid #f4f5f6;
+
+						/* 环形进度条 */
+						p{
+							margin-top:12px;
+							color:#7A8999;
+							font-size:16px;
+							text-align:center;
+						}
+
+						&:nth-child(1){
+							padding-top:24px;
+
+							.circle{
+								color:#288ce6;
+								margin:0 auto;
+							}
+						}
+						&:nth-child(2){
+							padding-top:34px;
+
+							.score{
+								margin:0 auto;
+								background-color:#288ce6;
+								color:#fff;
+								font-weight:normal;
+								border-radius:6px;
+								font-size:70px;
+								width:110px;
+								height:133px;
+								text-align:center;
+								line-height:133px;
+							}
+						}
+					}
+				}
+				.fixed-box.float{
+					position:fixed;
+					top:230px;
+					left:260px;
+				}
+				
+				@media (max-width: $breakpoint-1) {   
+					.fixed-box.float{
+						left:40px;
+					}
+				}
+
+				@media (min-width: $breakpoint-1) {   
+					.fixed-box.float{
+						left:100px;
+					}
+				}
+
+				@media (min-width: $breakpoint-2) {  /* 1024 */
+					.fixed-box.float{
+						left:250px;
+					}
+				}
+				@media (min-width: $breakpoint-3) {
+				}
+			}
+
+			.right-content{
+				padding-left:30px;
+				margin-left:440px; 
+
+				.progress-list{
+					list-style:none;
+					width:640px;
+					float:left;
+					padding-bottom:300px;
+					margin-bottom:0;
+
+					&>li{
+						width:100%;
+						margin-bottom:10px;
+						float:left;
+						position:relative;
+						color:#a3b8cc;
+						padding:20px 28px 36px 28px;
+						border:2px solid #e3e4e6;
+						opacity:.6;
+						filter:alpha(opacity=60);
+
+						.left-arrow{
+							width:32px;
+							height:60px;
+							position:absolute;
+							left:-32px;
+							top:0;
+							bottom:0;
+							margin:auto;
+							background-position:0 center;
+							background-repeat:no-repeat;
+						}
+
+						h4{
+							font-size:16px;
+							/*color:#a3b8cc;*/
+							line-height:20px;
+							color:#7A8999;
+							margin-top:0px;
+							margin-bottom:12px;
+						}
+
+						ul{
+							list-style:none;
+							float:left;
+							width:100%;
+							padding:0;
+							list-style:none;
+							border-bottom:1px solid #F3F5F5;
+
+							li{
+								padding:13px 0;
+								width:100%;
+								float:left;
+								position:relative;
+								line-height:24px;
+								border-top:1px solid #F3F5F5;
+								background-image:url(/assets/images/unfinished.png);
+								background-repeat:no-repeat;
+								background-position:0 center;
+								
+								span.main{
+									float:left;
+									margin-left:20px;
+									margin-right:60px;
+									cursor:default;
+								}
+								span.remarks{
+									position:absolute;
+									height:24px;
+									right:0;
+									top:0;
+									bottom:0;
+									margin:auto 0;
+									color:#b4c0cc;
+								}
+								.left-arrow{
+									width:32px;
+									height:60px;
+									position:absolute;
+									left:-32px;
+									top:0;
+									bottom:0;
+									margin:auto;
+									background-position:0 center;
+									background-repeat:no-repeat;
+								}
+							}
+							li.finished{
+								background-image:url(/assets/images/finished.png);
+							}
+						}
+					}
+
+					&>li.cur{
+						color:#525c66;
+						opacity:1;
+						filter:alpha(opacity=100);
+
+						.left-arrow{
+							background-image:url(/assets/images/left_arrow.png);
+						}
+						ul li span.main{
+							&:hover{
+								color:#288ce6;
+							}
+						}
+
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-1) { 
+				.right-content{  
+					.progress-list{
+						
+					}
+				}
+			}
+
+			@media (max-width: $breakpoint-2) {  /* < 1024 */
+				.right-content{  
+					padding-right:10px;
+
+					.progress-list{
+						&>li{
+							 ul li span.main{
+								margin-right:50px;
+							}
+						}
+					}
+				}
+			}
+
+			@media (max-width: $breakpoint-3) {  /* 1024 - 1400 */
+				.right-content{  
+					margin-left:380px;
+
+					.progress-list{
+						width:auto;
+					}
+				}
+			}
+		}
+	}
+}
